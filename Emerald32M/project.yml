@@ -1,0 +1,19 @@
+name: Emerald32M
+options:
+  bundleIdPrefix: com.emerald
+  deploymentTarget:
+    iOS: "12.0"
+targets:
+  Emerald32M:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.emerald.32m
+        PRODUCT_NAME: Emerald32M
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_VERSION: "5.0"
+        IPHONEOS_DEPLOYMENT_TARGET: "12.0"
+        CODE_SIGNING_ALLOWED: NO
