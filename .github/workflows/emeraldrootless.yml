@@ -1,0 +1,39 @@
+name: EmeraldRootless Build
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "EmeraldRootless/**"
+      - ".github/workflows/emeraldrootless.yml"
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.4.app/Contents/Developer
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate project
+        working-directory: EmeraldRootless
+        run: xcodegen generate
+
+      - name: Build unsigned app
+        working-directory: EmeraldRootless
+        run: xcodebuild -project EmeraldRootless.xcodeproj -scheme EmeraldRootless -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build/DerivedData CODE_SIGNING_ALLOWED=NO build
+
+      - name: Package app
+        run: |
+          cd EmeraldRootless/build/DerivedData/Build/Products/Release-iphoneos
+          zip -r "$GITHUB_WORKSPACE/EmeraldRootless-unsigned.zip" EmeraldRootless.app
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EmeraldRootless-unsigned
+          path: EmeraldRootless-unsigned.zip
