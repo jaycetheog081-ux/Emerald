@@ -1,0 +1,18 @@
+name: EmeraldMobile
+options:
+  bundleIdPrefix: com.emerald
+  deploymentTarget:
+    iOS: "12.0"
+targets:
+  EmeraldMobile:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.emerald.mobile
+        PRODUCT_NAME: EmeraldMobile
+        TARGETED_DEVICE_FAMILY: "1,2"
+        IPHONEOS_DEPLOYMENT_TARGET: "12.0"
+        CODE_SIGNING_ALLOWED: NO
