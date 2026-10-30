@@ -1,0 +1,17 @@
+name: EmeraldDT
+options:
+  bundleIdPrefix: com.emerald
+  deploymentTarget:
+    macOS: "13.0"
+targets:
+  EmeraldDT:
+    type: application
+    platform: macOS
+    sources:
+      - Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.emerald.dt
+        PRODUCT_NAME: EmeraldDT
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
+        CODE_SIGNING_ALLOWED: NO
