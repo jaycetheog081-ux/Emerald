@@ -1,0 +1,16 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xcodeproj/
+*.xcworkspace/
+
+# Signing and local secrets
+*.p12
+*.mobileprovision
+.env
+.env.*
+
+# macOS
+.DS_Store
