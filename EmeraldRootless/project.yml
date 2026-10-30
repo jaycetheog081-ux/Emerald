@@ -1,0 +1,18 @@
+name: EmeraldRootless
+options:
+  bundleIdPrefix: com.emerald
+  deploymentTarget:
+    iOS: "15.0"
+targets:
+  EmeraldRootless:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.emerald.rootless
+        PRODUCT_NAME: EmeraldRootless
+        TARGETED_DEVICE_FAMILY: "1,2"
+        IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+        CODE_SIGNING_ALLOWED: NO
